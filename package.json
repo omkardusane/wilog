@@ -1,0 +1,21 @@
+{
+  "name": "wilog",
+  "version": "0.0.1",
+  "description": "omkardusane@gmail.com",
+  "main": "wilogserver.js",
+  "scripts": {
+    "start": "node wilogserver.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Omkat Dusane",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "http": "0.0.0",
+    "socket.io": "^1.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/omkardusane/wilog.git"
+  }
+}

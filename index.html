@@ -1,0 +1,38 @@
+<script src="https://code.angularjs.org/1.4.0/angular.min.js" > </script>
+<script src="/socket.io/socket.io.js"></script>
+<style>
+div.scroll {
+    background-color: #1ffff8;
+    width: 2000px;
+    height: 300px;
+    overflow: scroll;
+}
+</style>
+<script>
+  
+  var socket = io();
+    var app = angular.module('wilogModule',[])
+      .controller('wilogCntrl',function($scope){
+        $scope.logs = [];
+        $scope.refresh = ()=>{
+            $scope.$apply()
+        };
+        socket.on('wilog_read', function(msg){
+            $scope.logs.push({ts:msg.ts,print:""+msg.stringTs+" | "+msg.tag+": "+msg.message}) ;
+            $scope.$apply()
+        });
+    });
+
+</script>
+<h1> WiLog output stream (RealTime)</h1>
+<div ng-app="wilogModule" ng-controller="wilogCntrl">
+<br />
+<!--button ng-click="refresh()" value="Refresh (Not necessory)"> Refresh (Not necessory) </button-->
+<br />
+0th WiLog : {{ logs[0].print}}
+<div class="scroll">
+    Logs past :<br />
+    <li ng-repeat="log in logs  | orderBy : 'ts' : 'reverse'">{{log.print}}</li>
+</div>
+<br />
+</div>
