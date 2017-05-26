@@ -14,7 +14,7 @@ Requirements : nodejs and npm , same router connected to development machine and
 * 2. `npm install`
 * 3. `npm start`
 
-* watch the logs in this shell and also in http:localhost:3000/show
+* watch the logs in this shell and also in http://localhost:3000/show
 
 ## B. How to install this Logger in Android project :
  
